@@ -1,5 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types';
+// Internal links should always use react-router-dom, because it keeps whatever state you've set
+import { Link } from 'react-router-dom'
 
 
 const NavBar = ({icon, title}) => {
@@ -7,10 +9,19 @@ const NavBar = ({icon, title}) => {
     return (
         <nav className="navbar bg-primary">
             <h1>
+                <a href='/'>
                 <i className={icon} />
                     {title}
-                
+                </a>
             </h1>
+            <ul>
+                <li>
+                    <Link to='/'>Home</Link>
+                </li>
+                <li>
+                    <Link to='about'>About</Link>
+                </li>
+            </ul>
         </nav>
     )
 }
